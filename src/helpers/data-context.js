@@ -7,13 +7,17 @@ const DataProvider = ({ children }) => {
   const [loader, setLoader] = useState(false);
   const [videos, setVideos] = useState([]);
   const [categories, setCategories] = useState([]);
-  useEffect(async () => {
-    setLoader(true);
-    const apiData = await axios.get("/api/videos");
-    const data = await axios.get("/api/categories");
-    setLoader(false);
-    setVideos(apiData.data.videos);
-    setCategories(data.data.categories);
+  useEffect(() => {
+    (async () => {
+      setLoader(true);
+      const apiData = await Promise.all([
+        axios.get("/api/videos"),
+        axios.get("/api/categories"),
+      ]);
+      setLoader(false);
+      setVideos(apiData[0].data.videos);
+      setCategories(apiData[1].data.categories);
+    })();
   }, []);
   return (
     <DataContext.Provider value={{ categories, videos, loader }}>
