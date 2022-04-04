@@ -1,6 +1,6 @@
 .login-page{
     height: 100vh;
-    background-image: linear-gradient(to bottom,var(--white),var(--primary-400));
+    background-image: linear-gradient(to bottom,var(--red-400),var(--primary-400),var(--primary-400));
 }
 .register-link:hover{
     text-decoration: underline;

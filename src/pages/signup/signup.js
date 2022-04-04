@@ -103,7 +103,7 @@ export function SignUp() {
             Already a customer?
             <br />{" "}
             <Link to="/loginMe">
-              <span className="text-underline text-blue sm">
+              <span className="text-underline text-blue sm bold">
                 Log in here &gt;
               </span>
             </Link>
