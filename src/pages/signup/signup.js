@@ -21,7 +21,10 @@ export function SignUp() {
   const [formFields, setFormFields] = useState(initial);
   const { name, email, password, confirmPass, error, message, loader } =
     formFields;
-
+  useEffect(
+    () => (isAuthenticated ? navigate("/home") : ""),
+    [isAuthenticated]
+  );
   const submitHandler = (e) =>
     signUpHandler(e, setFormFields, login, formFields);
   return (

@@ -11,8 +11,8 @@ const DataProvider = ({ children }) => {
     (async () => {
       setLoader(true);
       const apiData = await Promise.all([
-        axios.get("/api/videos"),
-        axios.get("/api/categories"),
+        axios.get("api/videos"),
+        axios.get("api/categories"),
       ]);
       setLoader(false);
       setVideos(apiData[0].data.videos);

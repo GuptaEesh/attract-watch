@@ -1,3 +1,6 @@
+export { SideNav } from "./organisms/navbar/side-nav";
+export { SmallNav } from "./organisms/navbar/smallnav";
+export { VideoCard } from "./molecules/display-window/video-display";
 export { InputPass } from "./molecules/inputbox/input-password";
 export { InputSimple } from "./molecules/inputbox/input-simple";
 export { CategoryCard } from "./molecules/category/category";
