@@ -8,20 +8,26 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
+    categoryName: "Design",
     description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+      "Automotive design is the process of developing the appearance (and to some extent the ergonomics) of motor vehicles.The functional design and development of a modern motor vehicle is typically done by a large team from many different disciplines also included within automotive engineering.",
+    image:
+      "https://drive.google.com/uc?export=view&id=1MMgLYtudVFEydTmQJIaDyY0NqxrRoAjV",
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
+    categoryName: "Safety",
     description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+      "Automotive safety is the study and practice of design, construction, equipment and regulation to minimize the occurrence and consequences of traffic collisions involving motor vehicles.",
+    image:
+      "https://drive.google.com/uc?export=view&id=1nrK9VGV5AQJAZCQe9GnAmPRbr9HiMlGE",
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
+    categoryName: "Engine",
     description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+      "The engine of a car or other vehicle is the part that produces the power which makes the vehicle move.",
+    image:
+      "https://drive.google.com/uc?export=view&id=1QLNJx12jzH2Lt8h9qIGzTf2l5w79rPjH",
   },
 ];
