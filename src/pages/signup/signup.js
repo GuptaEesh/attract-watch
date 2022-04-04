@@ -103,14 +103,14 @@ export function SignUp() {
             Already a customer?
             <br />{" "}
             <Link to="/loginMe">
-              <span className="text-underline text-blue sm bold">
+              <span className="text-underline text-red sm bold">
                 Log in here &gt;
               </span>
             </Link>
           </span>
           <Input
             inputType="submit"
-            inputClass="primary btn text-white without-shadow"
+            inputClass="primary-video bold btn text-white without-shadow"
           />
         </form>
       )}

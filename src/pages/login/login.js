@@ -73,19 +73,22 @@ export function Login() {
             <span style={{ opacity: 0 }}>Validate</span>
           )}
           <Button
-            btnType="btn guest-login secondary bold without-shadow"
+            btnClass="btn guest-login secondary bold without-shadow"
             btnText="Guest Login"
             btnFunc={guestLogin}
           />
           <h2 className="flex flex-column text-white">
             New Here?{" "}
             <Link to="/signup">
-              <span className="sm register-link text-blue">
+              <span className="sm register-link text-red">
                 Register Here &gt;{" "}
               </span>
             </Link>
           </h2>
-          <Button btnType="btn primary bold without-shadow" btnText="Login" />
+          <Button
+            btnClass="btn primary-video text-white bold without-shadow"
+            btnText="Login"
+          />
         </form>
       )}
     </div>

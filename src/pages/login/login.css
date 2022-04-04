@@ -9,10 +9,8 @@
 .condition-checked{
     text-decoration: line-through;
 }
-.guest-login{
-    width: 100%;
-}
+
 .guest-login:hover{
-    background-color: var(--secondary-200);
+    background-color: rgb(151, 0, 0);
     color: var(--white);
 }

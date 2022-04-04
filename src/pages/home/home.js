@@ -19,7 +19,7 @@ export function Home() {
           <Link to="/loginMe">
             <Button
               btnText="Sign-In"
-              btnType="primary-video btn text-white bold size-16"
+              btnClass="primary-video btn text-white bold size-16"
               btnStyle={{ padding: "10px 1.5rem" }}
             />
           </Link>

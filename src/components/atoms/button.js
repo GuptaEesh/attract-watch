@@ -4,14 +4,14 @@ export const Button = ({
   disabled = false,
   btnFunc,
   btnText,
-  btnType,
+  btnClass,
   btnStyle,
 }) => {
   return (
     <button
       disabled={disabled}
       onClick={btnFunc}
-      className={btnType}
+      className={btnClass}
       style={btnStyle}
     >
       {btnText}
