@@ -16,10 +16,10 @@ export function Home() {
           <h2 className="text-white">
             Take your snacks and sit back and chillax!
           </h2>
-          <Link to="/login">
+          <Link to="/loginMe">
             <Button
               btnText="Sign-In"
-              btnType="primary-video btn text-white bold size-16"
+              btnClass="primary-video btn text-white bold size-16"
               btnStyle={{ padding: "10px 1.5rem" }}
             />
           </Link>

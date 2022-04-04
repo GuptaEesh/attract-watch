@@ -1,7 +1,7 @@
 import "./App.css";
-import { DataProvider } from "./helpers/data-context";
+import { DataProvider } from "./helpers";
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages";
+import { Home, Login, SignUp } from "./pages";
 
 function App() {
   return (
@@ -9,6 +9,8 @@ function App() {
       <DataProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/loginMe" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </DataProvider>
     </div>
