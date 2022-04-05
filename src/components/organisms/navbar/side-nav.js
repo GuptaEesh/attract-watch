@@ -19,13 +19,13 @@ export function SideNav() {
   ];
   const { logout } = useAuth();
   return (
-    <div className="text-white align-center side-nav flex flex-column justify-space-around">
+    <div className=" align-center side-nav flex flex-column justify-space-around">
       {navOptions.map(({ id, logo, name }) => (
         <NavLink
           onClick={name === "Logout" && logout}
           to={name !== "Logout" && `/${name.toLowerCase()}`}
           className={({ isActive }) =>
-            "flex text-white bold flex-column align-center" +
+            "flex  bold flex-column align-center" +
             (isActive ? " option-select option-choose" : " option-select")
           }
           key={id}

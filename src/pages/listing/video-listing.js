@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Loader, SmallNav, VideoCard } from "../../components";
-import { useData } from "../../helpers";
+import { getData, useData } from "../../helpers";
 export function VideoListingPage() {
-  const { loader, videos } = useData();
+  const { loader, videos, categories, setCategories, setVideos, setLoader } =
+    useData();
   const [selectedVideos, setSelectedVideos] = useState(videos);
   const [selectedCategory, setSelectedCategory] = useState("All");
   let showVideos = selectedVideos.length === 0 ? videos : selectedVideos;
+  useEffect(
+    () =>
+      (videos.length === 0 || categories.length === 0) &&
+      (async () => {
+        setLoader(true);
+        const apiData = await getData();
+        setLoader(false);
+        setCategories(apiData[1].data.categories);
+        setVideos(apiData[0].data.videos);
+      })(),
+    []
+  );
   return (
     <div className="flex flex-column" style={{ flex: 1 }}>
       <SmallNav
@@ -30,28 +43,30 @@ export function VideoListingPage() {
           className="flex flex-wrap justify-space-between selected-list"
           style={{ gap: "1rem" }}
         >
-          {[...showVideos].map(
-            ({
-              id,
+          {[...showVideos].map((video) => {
+            const {
+              _id,
               display_img: img,
               views,
               description: desc,
               title,
               likes,
-            }) => (
+            } = video;
+            return (
               <VideoCard
-                key={id}
+                key={_id}
+                video={video}
                 likes={likes}
                 views={views}
                 cardStyle="eg-card ecomm-card text-white"
-                id={id}
+                id={_id}
                 img={img}
                 desc={desc}
                 title={title}
                 cardHeader="listedVideo"
               />
-            )
-          )}
+            );
+          })}
         </div>
       )}
     </div>
