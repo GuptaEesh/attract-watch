@@ -1,3 +1,6 @@
+.App{
+  display: flex;
+}
 html .without-shadow{
   box-shadow: none;
 }

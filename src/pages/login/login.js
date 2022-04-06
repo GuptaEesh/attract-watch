@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, InputPass, InputSimple, Loader } from "../../components";
 import { AiFillWarning } from "react-icons/ai";
 import "./login.css";
@@ -11,9 +11,14 @@ export function Login() {
     error: false,
     loader: false,
   };
+  const navigate = useNavigate();
   const { login, isAuthenticated } = useAuth();
   const [formFields, setFormFields] = useState(initial);
   const { email, password, error, loader } = formFields;
+  useEffect(
+    () => (isAuthenticated ? navigate("/home") : ""),
+    [isAuthenticated]
+  );
   const guestLogin = () =>
     setFormFields({
       ...formFields,

@@ -1,5 +1,11 @@
+export { PlayListPage } from "./playlist/playlist";
+export { HistoryPage } from "./history/history";
+export { LikedVideosPage } from "./liked/video-liked";
+export { PrivateRoute } from "./private-route";
 export { SignUp } from "./signup/signup";
-
 export { Login } from "./login/login";
-
 export { Home } from "./home/home";
+export { VideoListingPage } from "./listing/video-listing";
+export { WatchLaterPage } from "./watch-later/watch-later";
+export { SingleVideoPage } from "./single-video-page/single-video-page";
+export { SinglePlayList } from "./single-playlist/single-playlist";

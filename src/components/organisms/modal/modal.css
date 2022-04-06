@@ -1,0 +1,30 @@
+.modalBackground {
+    width: 100vw;
+    padding-right: 10rem;
+    height:100vh;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    z-index: 4;
+}
+.modalContainer {
+    position: relative;
+    width: 40%;
+    max-height: 40vh;
+    min-height: 40vh;
+    border-radius: 12px;
+    background-color: var(--primary-400);
+    padding: 25px;
+    overflow-y: auto;
+}
+.cross-for-chips{
+    background-color: var(--red-400);
+    position: absolute;
+    right:50%;
+    bottom: 1%;
+}
+.modalContainer .title{
+    margin-bottom: 2rem;
+}
+.modalContainer .input-text{
+    width: 60%;
+}

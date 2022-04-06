@@ -1,0 +1,15 @@
+.openPlaylist{
+    color: var(--white);
+    transition: transform 0.5s ease-in-out;
+}
+.openPlaylist:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.deletePlaylist{
+    color:var(--white);
+}
+.deletePlaylist:hover{
+    cursor: pointer;
+    color: var(--red-400);
+}

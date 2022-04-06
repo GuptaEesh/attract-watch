@@ -1,0 +1,29 @@
+.side-nav{
+    background-color: var(--primary-200);
+    color: var(--primary-400);
+    margin-right: 2rem;
+    height: 100%;
+    top: 0;
+    position:sticky;
+    left:0;
+    height: 100vh;
+    transition: background-color 0.4s ease-in-out;
+}
+.side-nav:hover{
+    background-color: var(--white);
+    cursor: pointer;
+}
+.option-select{
+    box-shadow: 8px 8px 12px 0 rgba(0, 0, 0, 0.2),
+    -2px -2px 12px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 40px;
+  padding: var(--size-12);
+}
+.option-choose{
+    box-shadow: inset 6px 6px 10px 0 rgba(0,0,0, 0.2),
+    inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+}
+.nav-section-left{
+    align-self: center;
+    gap:1rem;
+}
