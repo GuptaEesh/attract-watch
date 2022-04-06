@@ -26,8 +26,9 @@ export function Login() {
       password: "adarshBalika123",
     });
 
-  const submitHandler = (e) =>
+  const submitHandler = (e) => {
     loginHandler(e, setFormFields, login, formFields);
+  };
   return (
     <div className="flex login-page align-center justify-center">
       {loader ? (
@@ -38,8 +39,7 @@ export function Login() {
       ) : (
         <form
           onSubmit={submitHandler}
-          className=" flex glass flex-column text-white "
-          style={{ padding: "2rem", gap: "1rem" }}
+          className=" flex credential-form glass flex-column text-white gap-1 padding-2"
         >
           <InputSimple
             title="Email"
@@ -68,14 +68,11 @@ export function Login() {
             inputPlaceHolder="password..."
           />
           {error ? (
-            <span
-              className="flex align-center bold"
-              style={{ color: "var(--red-400)" }}
-            >
-              Wrong Credentials <AiFillWarning color="var(--red-400)" />
+            <span className="flex align-center bold text-red">
+              Wrong Credentials <AiFillWarning className="text-red" />
             </span>
           ) : (
-            <span style={{ opacity: 0 }}>Validate</span>
+            <span className="opacity-0">Validate</span>
           )}
           <Button
             btnClass="btn guest-login secondary bold without-shadow"
@@ -91,7 +88,7 @@ export function Login() {
             </Link>
           </h2>
           <Button
-            btnClass="btn primary-video text-white bold without-shadow"
+            btnClass="btn primary-video-button text-white bold without-shadow"
             btnText="Login"
           />
         </form>

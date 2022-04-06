@@ -1,4 +1,4 @@
-.modalBackground {
+.modal-background {
     width: 100vw;
     padding-right: 10rem;
     height:100vh;
@@ -6,7 +6,7 @@
     backdrop-filter: blur(10px);
     z-index: 4;
 }
-.modalContainer {
+.modal-container {
     position: relative;
     width: 40%;
     max-height: 40vh;
@@ -22,9 +22,46 @@
     right:50%;
     bottom: 1%;
 }
-.modalContainer .title{
+.modal-container .title{
     margin-bottom: 2rem;
 }
-.modalContainer .input-text{
+.modal-container .input-text{
     width: 60%;
+}
+.add-song-button{
+    border-radius: 10px;
+    color: var(--red-400);
+    box-shadow: inset 2px 2px 8px var(--white);
+}
+.delete-playlist-button{
+    border-radius: 10px;
+    color: var(--secondary-300);
+}
+@media all and (max-width:1200px) {
+    .modal-container .playlist-generator{
+        flex-direction: column;
+    }
+    .modal-container{
+        width: 60%;
+    }
+    .modal-container .input-text{
+        width: 80%;
+    }
+}
+ @media all and (max-width:720px) {
+    .modal-container{
+        margin-left: 10rem;
+    }
+    .modal-container .input-text{
+        width: 220px;
+    }
+}
+@media all and (max-width:550px) {
+    .modal-background{
+        padding: 1rem;
+    }
+    .modal-container{
+        margin-left: 20px;
+        width:600px;
+    }
 }

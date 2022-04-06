@@ -1,0 +1,22 @@
+.delete-playlist-video{
+    top: 2%;
+    right: 5%;
+}
+.video-container{
+    background-color: var(--white-200);
+    padding: var(--size-16);
+}
+@media all and (max-width:820px) {
+    .video-container{
+        padding: 10px;
+    }
+ 
+}
+@media all and (max-width:400px) {
+    .video-container{
+        padding:10px;
+        margin-left: -30px;
+        margin-right: 0;
+    }
+    
+}

@@ -18,12 +18,8 @@ export function SmallNav({ setSelectedVideos, setSelectedCategory }) {
           <Button
             key={id}
             btnText={name}
-            btnClass="bold btn "
+            btnClass="bold btn primary-video-button text-white"
             btnFunc={() => categoryHandler(name)}
-            btnStyle={{
-              backgroundColor: "var(--red-400)",
-              color: "var(--white)",
-            }}
           />
         )
       )}

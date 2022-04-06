@@ -8,6 +8,10 @@ const initialData = {
 };
 const AuthProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState(initialData);
+  const [modal, setModal] = useState({
+    state: false,
+    payload: null,
+  });
   const navigate = useNavigate();
   const isAuthenticated = authToken.token ? true : false;
   const login = (data) => {
@@ -19,11 +23,13 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.clear();
     setAuthToken({ token: null, data: null });
-    navigate("/loginMe");
+    navigate("/");
   };
   return (
     <AuthContext.Provider
       value={{
+        modal,
+        setModal,
         login,
         logout,
         isAuthenticated,

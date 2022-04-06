@@ -5,7 +5,7 @@ import { removeVideoFromPlaylist, useAuth, useFeature } from "../../helpers";
 import { GiCrossMark } from "react-icons/gi";
 import { getConfig } from "../../helpers/utils/server-helper";
 import { Loader, VideoCard } from "../../components";
-
+import "./single-playlist.css";
 export function SinglePlayList() {
   const { id } = useParams();
   const { token } = useAuth();
@@ -16,7 +16,6 @@ export function SinglePlayList() {
   const navigate = useNavigate();
   const removeVideo = (videoId) =>
     removeVideoFromPlaylist(dispatchFeature, token, id, videoId);
-  console.log(playlists);
   useEffect(
     () =>
       (async () => {
@@ -37,76 +36,38 @@ export function SinglePlayList() {
     [playlists]
   );
   return loader ? (
-    <div
-      className="flex flex-column text-white align-center justify-center"
-      style={{ width: "80vw" }}
-    >
+    <div className="flex flex-column text-white align-center justify-center width-r-80">
       <Loader />
       <h1>Loading your loved videos</h1>
     </div>
   ) : (
-    <div
-      className="flex flex-column align-center"
-      style={{
-        margin: "1rem",
-        width: "80vw",
-      }}
-    >
-      <h1 className="text-white" style={{ margin: "1rem" }}>
-        {" "}
-        Playlist : {playlistName}
-      </h1>
-      <div className="flex flex-wrap justify-space-between">
+    <div className="flex flex-column align-center margin-1 width-r-80">
+      <h1 className="text-white margin-1"> Playlist : {playlistName}</h1>
+      <div className="flex flex-wrap gap-1 justify-space-between">
         {videos &&
           videos.map((video) => {
-            const {
-              _id,
-              title,
-              display_img: img,
-              description: desc,
-              likes,
-              views,
-            } = video;
             return (
               <div
-                key={_id}
-                style={{
-                  height: "max-content",
-                  backgroundColor: "var(--white-200)",
-                  padding: "var(--size-16)",
-                  position: "relative",
-                  width: "max-content",
-                }}
+                className="height-max-content width-max-content position-relative video-container"
+                key={video._id}
               >
                 <GiCrossMark
-                  color="var(--white)"
-                  onClick={() => removeVideo(_id)}
-                  style={{
-                    cursor: "pointer",
-                    position: "absolute",
-                    top: "2%",
-                    right: "5%",
-                  }}
+                  className="cursor-pointer position-absolute text-white delete-playlist-video"
+                  onClick={() => removeVideo(video._id)}
                 />
-                <div
-                  className="flex justify-space-around "
-                  style={{ gap: "1rem" }}
-                >
+                <div className="flex justify-space-around gap-1 ">
                   <VideoCard
                     video={video}
-                    img={img}
-                    desc={desc}
-                    title={title}
-                    likes={likes}
-                    views={views}
-                    id={_id}
+                    img={video.display_img}
+                    desc={video.description}
+                    title={video.title}
+                    likes={video.likes}
+                    views={video.views}
+                    id={video._id}
                     cardStyle="playlist-card"
                     cardHeader="playListedVideo"
                   />
-                  <section
-                    className="flex flex-wrap"
-                    style={{ gap: "1rem" }}
-                  ></section>
+                  <section className="flex flex-wrap gap-1"></section>
                 </div>
               </div>
             );

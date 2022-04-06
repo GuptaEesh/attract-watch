@@ -1,8 +1,28 @@
 .home-page{
     background:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,1),rgba(0,0,0,0.1)),url('../../images/landing2.jpg');
     height:100vh;
-    width: 100vw;
+    width: 95vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.home-sign-in{
+    padding: 10px 1.5rem; 
+}
+.eye-catcher{
+    color:var(--red-400);
+    height: 3rem;
+    width: 3rem;
+}
+.loader-wrapper{
+    width:100vw;
+    margin-top:30vh;
+}
+@media all and (max-width:700px) {
+    .home-page h2,h1{
+        margin-left: 2rem;
+    }
+    .category-cards{
+        gap:4rem
+    }
 }

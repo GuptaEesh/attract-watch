@@ -11,23 +11,20 @@ export const categories = [
     categoryName: "Design",
     description:
       "Automotive design is the process of developing the appearance (and to some extent the ergonomics) of motor vehicles.The functional design and development of a modern motor vehicle is typically done by a large team from many different disciplines also included within automotive engineering.",
-    image:
-      "https://drive.google.com/uc?export=view&id=1MMgLYtudVFEydTmQJIaDyY0NqxrRoAjV",
+    image: "http://i3.ytimg.com/vi/Xi4RrjvZA7w/hqdefault.jpg",
   },
   {
     _id: uuid(),
     categoryName: "Safety",
     description:
       "Automotive safety is the study and practice of design, construction, equipment and regulation to minimize the occurrence and consequences of traffic collisions involving motor vehicles.",
-    image:
-      "https://drive.google.com/uc?export=view&id=1nrK9VGV5AQJAZCQe9GnAmPRbr9HiMlGE",
+    image: "http://i3.ytimg.com/vi/Hwq9aSQ0WxQ/hqdefault.jpg",
   },
   {
     _id: uuid(),
     categoryName: "Engine",
     description:
       "The engine of a car or other vehicle is the part that produces the power which makes the vehicle move.",
-    image:
-      "https://drive.google.com/uc?export=view&id=1QLNJx12jzH2Lt8h9qIGzTf2l5w79rPjH",
+    image: "http://i3.ytimg.com/vi/QIc-9UuLSmg/hqdefault.jpg",
   },
 ];

@@ -10,33 +10,22 @@ export function PlayListPage() {
   const navigate = useNavigate();
   const deletePlaylist = (id) => removePlaylist(dispatchFeature, token, id);
   return (
-    <div className="flex flex-column" style={{ width: "100%" }}>
-      <h1 className="text-white text-center bold" style={{ margin: "1rem" }}>
+    <div className="flex flex-column width-p-100">
+      <h1 className="text-white text-center bold margin-1">
         Playlists ({playlists.length})
       </h1>
       {playlists.length === 0 ? (
         <EmptyPage emptyPageMessage="add kro kuch to playlist mai" />
       ) : (
-        <div
-          className="flex flex-column"
-          style={{ marginTop: "1rem", gap: "2rem" }}
-        >
+        <div className="flex flex-column gap-2 margin-top-1">
           {playlists.map(({ _id, title }) => (
             <section
               key={_id}
-              style={{ gap: "1rem" }}
-              className=" flex align-center justify-space-around"
+              className=" flex align-center playlist-wrapper justify-space-around gap-1"
             >
               <h1 className="text-white">
-                PlayList Name :{" "}
-                <span
-                  className="text-blue bold size-16"
-                  style={{
-                    backgroundColor: "var(--white)",
-                    padding: "5px",
-                    borderRadius: "0.5rem",
-                  }}
-                >
+                PlayList :{" "}
+                <span className="text-blue bold size-16 playlist-name">
                   {title}
                 </span>
               </h1>

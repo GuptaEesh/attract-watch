@@ -20,29 +20,23 @@ export function VideoListingPage() {
     []
   );
   return (
-    <div className="flex flex-column" style={{ flex: 1 }}>
+    <div className="flex flex-column flex-1">
       <SmallNav
         setSelectedVideos={setSelectedVideos}
         setSelectedCategory={setSelectedCategory}
       />
-      <h1 className="text-white text-center" style={{ margin: "1rem" }}>
+      <h1 className="text-white text-center margin-1">
         {" "}
         Showing results for{" "}
         <span className="text-red bold size-16">{selectedCategory}</span>{" "}
       </h1>
       {loader ? (
-        <div
-          className="flex align-center flex-column justify-center"
-          style={{ marginTop: "20vh" }}
-        >
+        <div className="flex align-center flex-column justify-center margin-top-r-20">
           <Loader />
           <h2 className="text-white">Loading your videos! Hang in with us</h2>
         </div>
       ) : (
-        <div
-          className="flex flex-wrap justify-space-between selected-list"
-          style={{ gap: "1rem" }}
-        >
+        <div className="flex flex-wrap justify-space-between selected-list gap-1">
           {[...showVideos].map((video) => {
             const {
               _id,

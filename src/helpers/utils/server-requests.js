@@ -12,14 +12,16 @@ const loginHandler = async (e, setFormFields, login, formFields) => {
       email,
       password,
     });
-    setFormFields({ ...formFields, loader: false });
+    setFormFields({ ...formFields, email: "", password: "", loader: false });
     login(data);
   } catch (err) {
-    setFormFields({ ...formFields, error: true });
+    setFormFields({ ...formFields, email: "", password: "", error: true });
     setTimeout(
       () =>
         setFormFields({
           ...formFields,
+          email: "",
+          password: "",
           error: false,
         }),
       1500
@@ -46,7 +48,7 @@ const signUpHandler = async (e, setFormFields, login, formFields) => {
       message:
         err === "passwordError"
           ? "Passwords don't match"
-          : "It's not you it's us",
+          : "Directly login, you are our user.",
     });
     setTimeout(() => setFormFields({ ...formFields, error: false }), 1500);
   }

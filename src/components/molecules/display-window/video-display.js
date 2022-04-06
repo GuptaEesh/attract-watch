@@ -25,7 +25,7 @@ export function VideoCard({
   views,
 }) {
   const { likelist, watchlater, dispatchFeature } = useFeature();
-  const { token } = useAuth();
+  const { token, setModal } = useAuth();
   const navigate = useNavigate();
   const [delayEnhancers, setDelayEnhancers] = useState({
     likeHandle: false,
@@ -44,15 +44,13 @@ export function VideoCard({
     addToHistory(video, dispatchFeature, token);
     navigate(`/home/video/${video.video_id}`);
   };
-
+  const width = {
+    width: "var(--size-12)",
+  };
   return (
     <div
       id={cardHeader}
-      style={{
-        height: "max-content",
-        position: "relative",
-        width: "max-content",
-      }}
+      className="position-relative video-card-container height-max-content width-max-content"
     >
       <div className={cardStyle} onClick={historyHandler}>
         <img src={img} alt={title} loading="lazy" />
@@ -62,7 +60,7 @@ export function VideoCard({
       <section className=" flex flex-wrap video_status">
         <p className="bold xsm text-white">{likes} Likes</p>
         <p className="bold xsm text-white">{views} Views</p>
-        <div style={{ width: "var(--size-12)" }}>
+        <div style={width}>
           {likeHandle ? (
             <SmallLoader />
           ) : (
@@ -71,10 +69,10 @@ export function VideoCard({
                 onClick={removeLikeHandler}
                 color="var(--primary-200)"
               />
-            )) || <AiFillLike onClick={likeHandler} color="var(--white)" />
+            )) || <AiFillLike onClick={likeHandler} className="text-white" />
           )}
         </div>
-        <div style={{ width: "var(--size-12)" }}>
+        <div style={width}>
           {watchLaterHandle ? (
             <SmallLoader />
           ) : watchlater.find((video) => video._id === id) ? (
@@ -85,12 +83,17 @@ export function VideoCard({
           ) : (
             <BsFillBookmarkFill
               onClick={watchLaterHandler}
-              color="var(--white)"
+              className="text-white"
             />
           )}
         </div>
-        <div style={{ position: "relative" }}>
-          <MdPlaylistAdd color="var(--white)" />
+        <div className="position-relative">
+          <MdPlaylistAdd
+            className="text-white"
+            onClick={() =>
+              setModal((modal) => ({ state: true, payload: video }))
+            }
+          />
         </div>
       </section>
     </div>

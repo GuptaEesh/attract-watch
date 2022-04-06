@@ -18,7 +18,13 @@ const FeatureProvider = ({ children }) => {
   const playlists = feature.playlists;
   return (
     <FeatureContext.Provider
-      value={{ history, likelist, watchlater, playlists, dispatchFeature }}
+      value={{
+        history,
+        likelist,
+        watchlater,
+        playlists,
+        dispatchFeature,
+      }}
     >
       {children}
     </FeatureContext.Provider>
