@@ -13,6 +13,7 @@ import {
   SingleVideoPage,
   SinglePlayList,
   PlayListPage,
+  ErrorPage,
 } from "./pages";
 import { Modal, MySnackbar, SideNav } from "./components";
 import { useEffect } from "react";
@@ -70,6 +71,7 @@ function App() {
               path="/playlist/:id"
               element={<PrivateRoute component={<SinglePlayList />} />}
             />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </FeatureProvider>
       </DataProvider>
