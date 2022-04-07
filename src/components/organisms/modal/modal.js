@@ -13,17 +13,18 @@ import {
 export function Modal({ video }) {
   const [text, setText] = useState("");
   const { dispatchFeature, playlists } = useFeature();
-  const { token, setModal } = useAuth();
+  const { token, setModal, setSnackBar } = useAuth();
   const addPlaylist = () => {
     text.length
-      ? generatePlaylist(text, dispatchFeature, token)
+      ? generatePlaylist(text, dispatchFeature, token, setSnackBar)
       : alert("Mera naam kya hai? Mujhe naam do");
     setText("");
   };
 
-  const deletePlaylist = (id) => removePlaylist(dispatchFeature, token, id);
+  const deletePlaylist = (id) =>
+    removePlaylist(dispatchFeature, token, id, setSnackBar);
   const addToPlaylist = (id) =>
-    addVideoToPlaylist(dispatchFeature, token, id, video);
+    addVideoToPlaylist(dispatchFeature, token, id, video, setSnackBar);
   return (
     <div className="modal-background flex justify-center align-center">
       <div className="modal-container flex flex-column text-white">
@@ -48,7 +49,7 @@ export function Modal({ video }) {
           />
         </section>
         <ul className="list-noneOrdered">
-          {playlists.map((playlist) => (
+          {playlists?.map((playlist) => (
             <li
               key={playlist._id}
               className="text-white flex align-center gap-1"

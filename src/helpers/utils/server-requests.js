@@ -76,7 +76,7 @@ const addToLikedVideos = async (
       payload: response.data.likes,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
 const removeFromLikedVideos = async (
@@ -97,7 +97,7 @@ const removeFromLikedVideos = async (
       payload: response.data.likes,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
 const addToWatchLater = async (
@@ -122,7 +122,7 @@ const addToWatchLater = async (
       payload: response.data.watchlater,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
 const removeFromWatchLater = async (
@@ -143,7 +143,7 @@ const removeFromWatchLater = async (
       payload: response.data.watchlater,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
 const addToHistory = async (video, dispatchFeature, token) => {
@@ -158,7 +158,7 @@ const addToHistory = async (video, dispatchFeature, token) => {
       payload: response.data.history,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
 const deleteFromHistory = async (dispatchFeature, token, id) => {
@@ -172,7 +172,7 @@ const deleteFromHistory = async (dispatchFeature, token, id) => {
       payload: response.data.history,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
 const deleteAllHistory = async (dispatchFeature, token) => {
@@ -186,11 +186,15 @@ const deleteAllHistory = async (dispatchFeature, token) => {
       payload: response.data.history,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
-const generatePlaylist = async (text, dispatchFeature, token) => {
+const generatePlaylist = async (text, dispatchFeature, token, setSnackBar) => {
   try {
+    setSnackBar({
+      isSnackBarVisible: true,
+      snackMessage: "Playlist generated !",
+    });
     const response = await axios.post(
       "/api/user/playlists",
       {
@@ -198,30 +202,52 @@ const generatePlaylist = async (text, dispatchFeature, token) => {
       },
       getConfig(token)
     );
+    setSnackBar({
+      isSnackBarVisible: false,
+      snackMessage: "",
+    });
     dispatchFeature({
       type: "PLAYLIST_HANDLER",
       payload: response.data.playlists,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
-const removePlaylist = async (dispatchFeature, token, id) => {
+const removePlaylist = async (dispatchFeature, token, id, setSnackBar) => {
   try {
+    setSnackBar({
+      isSnackBarVisible: true,
+      snackMessage: "Playlist deleted !",
+    });
     const response = await axios.delete(
       `/api/user/playlists/${id}`,
       getConfig(token)
     );
+    setSnackBar({
+      isSnackBarVisible: false,
+      snackMessage: "",
+    });
     dispatchFeature({
       type: "PLAYLIST_HANDLER",
       payload: response.data.playlists,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
-const addVideoToPlaylist = async (dispatchFeature, token, id, video) => {
+const addVideoToPlaylist = async (
+  dispatchFeature,
+  token,
+  id,
+  video,
+  setSnackBar
+) => {
   try {
+    setSnackBar({
+      isSnackBarVisible: true,
+      snackMessage: "Video added to playlist !",
+    });
     await axios.post(
       `/api/user/playlists/${id}`,
       {
@@ -233,17 +259,30 @@ const addVideoToPlaylist = async (dispatchFeature, token, id, video) => {
       `/api/user/playlists`,
       getConfig(token)
     );
-
+    setSnackBar({
+      isSnackBarVisible: false,
+      snackMessage: "",
+    });
     dispatchFeature({
       type: "PLAYLIST_HANDLER",
       payload: playListResponse.data.playlists,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
-const removeVideoFromPlaylist = async (dispatchFeature, token, id, videoId) => {
+const removeVideoFromPlaylist = async (
+  dispatchFeature,
+  token,
+  id,
+  videoId,
+  setSnackBar
+) => {
   try {
+    setSnackBar({
+      isSnackBarVisible: true,
+      snackMessage: "Removed video from playlist !",
+    });
     const response = await axios.delete(
       `/api/user/playlists/${id}/${videoId}`,
 
@@ -253,12 +292,16 @@ const removeVideoFromPlaylist = async (dispatchFeature, token, id, videoId) => {
       `/api/user/playlists`,
       getConfig(token)
     );
+    setSnackBar({
+      isSnackBarVisible: false,
+      snackMessage: "",
+    });
     dispatchFeature({
       type: "PLAYLIST_HANDLER",
       payload: playListResponse.data.playlists,
     });
   } catch (e) {
-    console.log(e);
+    alert("Some error occured!");
   }
 };
 

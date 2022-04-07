@@ -1,3 +1,4 @@
+export { MySnackbar } from "./molecules/snackbar/snackbar";
 export { Modal } from "./organisms/modal/modal";
 export { MyYouTube } from "./organisms/you-tube/youtube";
 export { SideNav } from "./organisms/navbar/side-nav";

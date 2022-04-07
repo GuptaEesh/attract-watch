@@ -3,4 +3,5 @@ const getConfig = (token) => ({
     authorization: token,
   },
 });
+
 export { getConfig };

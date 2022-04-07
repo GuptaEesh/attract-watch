@@ -8,14 +8,14 @@ import { Loader, VideoCard } from "../../components";
 import "./single-playlist.css";
 export function SinglePlayList() {
   const { id } = useParams();
-  const { token } = useAuth();
+  const { token, setSnackBar } = useAuth();
   const { dispatchFeature, playlists } = useFeature();
   const [videos, setVideos] = useState(null);
   const [playlistName, setPlaylistName] = useState("");
   const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
   const removeVideo = (videoId) =>
-    removeVideoFromPlaylist(dispatchFeature, token, id, videoId);
+    removeVideoFromPlaylist(dispatchFeature, token, id, videoId, setSnackBar);
   useEffect(
     () =>
       (async () => {
@@ -45,7 +45,7 @@ export function SinglePlayList() {
       <h1 className="text-white margin-1"> Playlist : {playlistName}</h1>
       <div className="flex flex-wrap gap-1 justify-space-between">
         {videos &&
-          videos.map((video) => {
+          videos?.map((video) => {
             return (
               <div
                 className="height-max-content width-max-content position-relative video-container"
