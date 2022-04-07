@@ -19,8 +19,9 @@
     border-radius: 50%;
     background-color: var(--primary-400);
 }
-.toast-modify{
-    width: 30%;
-    border: 3px solid var(--primary-400);
-    border-right: 0;
+@media all and (max-width:750px) {
+    .snackbar-wrapper{
+        width:250px;
+        transform: translateX(20vw);
+    }
 }
