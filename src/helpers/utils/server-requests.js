@@ -268,7 +268,7 @@ const addVideoToPlaylist = async (
       payload: playListResponse.data.playlists,
     });
   } catch (e) {
-    alert("Some error occured!");
+    alert("Already in playlist");
   }
 };
 const removeVideoFromPlaylist = async (

@@ -8,7 +8,7 @@
     position: fixed;
     box-shadow: 0 0 12px var(--white);
     z-index: 4;
-    padding: 0 1rem;
+    padding: 10px 1rem;
 }
 .close-snackbar{
     width:1rem;
