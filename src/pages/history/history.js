@@ -17,8 +17,8 @@ export function HistoryPage() {
   return (
     <div className="flex flex-column align-center margin-1 width-r-80">
       <section className="flex flex-column align-center gap-1">
-        <h1 className="text-white">Watched Videos ({history.length})</h1>
-        {history.length !== 0 && (
+        <h1 className="text-white">Watched Videos ({history?.length})</h1>
+        {history?.length !== 0 && (
           <Button
             btnText="Clear History"
             btnClass="primary-video-button btn text-white bold"
@@ -26,11 +26,11 @@ export function HistoryPage() {
           />
         )}
       </section>
-      {history.length === 0 ? (
+      {history?.length === 0 ? (
         <EmptyPage emptyPageMessage="ki aap bina video dekhen chle jaayen" />
       ) : (
         <div className="flex flex-wrap justify-space-around selected-list gap-2 margin-2">
-          {history.map((historyVideo) => {
+          {history?.map((historyVideo) => {
             const {
               display_img: img,
               description: desc,

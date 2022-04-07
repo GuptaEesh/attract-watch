@@ -38,7 +38,7 @@ export function MyYouTube({ video_id, video, videos }) {
   };
 
   return (
-    videos.length > 0 &&
+    videos?.length > 0 &&
     video && (
       <div className="flex flex-wrap video-wrapper">
         <div className="flex flex-column screen flex-3 video-illuminator">
@@ -54,7 +54,7 @@ export function MyYouTube({ video_id, video, videos }) {
                 <div className="width-12">
                   {likeHandle ? (
                     <SmallLoader />
-                  ) : likelist.find(
+                  ) : likelist?.find(
                       (likedVideo) => likedVideo._id === video._id
                     ) ? (
                     <AiFillLike
@@ -68,7 +68,7 @@ export function MyYouTube({ video_id, video, videos }) {
                 <div className="width-12">
                   {watchLaterHandle ? (
                     <SmallLoader />
-                  ) : watchlater.find(
+                  ) : watchlater?.find(
                       (watchLaterVideo) => watchLaterVideo._id === video._id
                     ) ? (
                     <BsFillBookmarkCheckFill

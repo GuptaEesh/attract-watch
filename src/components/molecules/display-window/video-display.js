@@ -64,7 +64,7 @@ export function VideoCard({
           {likeHandle ? (
             <SmallLoader />
           ) : (
-            (likelist.some((video) => video._id === id) && (
+            (likelist?.some((video) => video._id === id) && (
               <AiFillLike
                 onClick={removeLikeHandler}
                 color="var(--primary-200)"
@@ -75,7 +75,7 @@ export function VideoCard({
         <div style={width}>
           {watchLaterHandle ? (
             <SmallLoader />
-          ) : watchlater.find((video) => video._id === id) ? (
+          ) : watchlater?.find((video) => video._id === id) ? (
             <BsFillBookmarkCheckFill
               onClick={removeWatchLaterHandler}
               color="var(--primary-200)"

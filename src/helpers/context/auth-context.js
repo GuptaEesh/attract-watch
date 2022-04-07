@@ -12,6 +12,10 @@ const AuthProvider = ({ children }) => {
     state: false,
     payload: null,
   });
+  const [snackbar, setSnackBar] = useState({
+    isSnackBarVisible: false,
+    snackMessage: "",
+  });
   const navigate = useNavigate();
   const isAuthenticated = authToken.token ? true : false;
   const login = (data) => {
@@ -28,6 +32,8 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
+        snackbar,
+        setSnackBar,
         modal,
         setModal,
         login,

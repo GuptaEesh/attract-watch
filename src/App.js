@@ -14,12 +14,12 @@ import {
   SinglePlayList,
   PlayListPage,
 } from "./pages";
-import { Modal, SideNav } from "./components";
+import { Modal, MySnackbar, SideNav } from "./components";
 import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
-  const { modal } = useAuth();
+  const { modal, snackbar } = useAuth();
   useEffect(() => {
     modal.state
       ? (document.body.style.overflow = "hidden")
@@ -35,6 +35,9 @@ function App() {
         <FeatureProvider>
           {!routeCheck && <SideNav />}
           {modal.state && <Modal video={modal.payload} />}
+          {snackbar.isSnackBarVisible && (
+            <MySnackbar snackMessage={snackbar.snackMessage} />
+          )}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/loginMe" element={<Login />} />
