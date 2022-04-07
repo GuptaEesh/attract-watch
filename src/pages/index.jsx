@@ -1,3 +1,4 @@
+export { ErrorPage } from "./error-page";
 export { PlayListPage } from "./playlist/playlist";
 export { HistoryPage } from "./history/history";
 export { LikedVideosPage } from "./liked/video-liked";
