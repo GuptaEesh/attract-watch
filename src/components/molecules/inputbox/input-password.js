@@ -11,7 +11,7 @@ export function InputPass({
   pattern,
 }) {
   const [visibility, setVisibility] = useState(false);
-
+  const toggleVisibilityStyle = { right: "2%", color: "var(--primary-400)" };
   return (
     <label className="flex flex-column">
       <span className="text-white">{name}</span>
@@ -27,22 +27,14 @@ export function InputPass({
         {visibility ? (
           <BsEyeSlash
             onClick={() => setVisibility(!visibility)}
-            style={{
-              position: "absolute",
-              right: "2%",
-              cursor: "pointer",
-            }}
-            color="var(--primary-400)"
+            className="position-absolute cursor-pointer"
+            style={toggleVisibilityStyle}
           />
         ) : (
           <BsEyeFill
             onClick={() => setVisibility(!visibility)}
-            style={{
-              position: "absolute",
-              right: "2%",
-              cursor: "pointer",
-            }}
-            color="var(--primary-400)"
+            className="position-absolute cursor-pointer"
+            style={toggleVisibilityStyle}
           />
         )}
       </div>

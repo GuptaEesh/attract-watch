@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getData } from "../utils/server-requests";
 
 const DataContext = createContext();
 

@@ -1,5 +1,5 @@
 import "./App.css";
-import { DataProvider, FeatureProvider } from "./helpers";
+import { DataProvider, FeatureProvider, useAuth } from "./helpers";
 import { Routes, Route, useLocation } from "react-router-dom";
 import {
   Home,
@@ -14,10 +14,17 @@ import {
   SinglePlayList,
   PlayListPage,
 } from "./pages";
-import { SideNav } from "./components";
+import { Modal, SideNav } from "./components";
+import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
+  const { modal } = useAuth();
+  useEffect(() => {
+    modal.state
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  }, [modal.state]);
   const routeCheck =
     location.pathname === "/" ||
     location.pathname === "/loginMe" ||
@@ -27,6 +34,7 @@ function App() {
       <DataProvider>
         <FeatureProvider>
           {!routeCheck && <SideNav />}
+          {modal.state && <Modal video={modal.payload} />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/loginMe" element={<Login />} />

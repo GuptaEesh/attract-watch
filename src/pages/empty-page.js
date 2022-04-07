@@ -10,7 +10,7 @@ export function EmptyPage({ emptyPageMessage }) {
     >
       <span>Ab hum itne bhi bure nhi, {emptyPageMessage}.</span>
       <Button
-        btnClass="primary-video btn bold text-white"
+        btnClass="primary-video-button btn bold text-white"
         btnText="Explore More"
         btnFunc={() => navigate("/home")}
       />

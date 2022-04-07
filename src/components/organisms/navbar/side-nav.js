@@ -8,6 +8,7 @@ import { MdOutlineWatchLater, MdPlaylistPlay } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { useAuth } from "../../../helpers";
+import "./nav.css";
 export function SideNav() {
   const navOptions = [
     { id: uuid(), logo: <AiOutlineHome />, name: "Home" },
@@ -23,10 +24,10 @@ export function SideNav() {
       {navOptions.map(({ id, logo, name }) => (
         <NavLink
           onClick={name === "Logout" && logout}
-          to={name !== "Logout" && `/${name.toLowerCase()}`}
+          to={name !== "Logout" ? `/${name.toLowerCase()}` : "/"}
           className={({ isActive }) =>
-            "flex  bold flex-column align-center" +
-            (isActive ? " option-select option-choose" : " option-select")
+            "flex bold option-select justify-space-around flex-column align-center" +
+            (isActive ? "  option-choose" : "")
           }
           key={id}
         >

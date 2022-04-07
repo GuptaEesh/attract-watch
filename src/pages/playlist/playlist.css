@@ -13,3 +13,22 @@
     cursor: pointer;
     color: var(--red-400);
 }
+.playlist-name{
+    background-color: var(--white);
+    padding: 5px;
+    border-radius: 0.5rem;
+  }
+  .playlist-wrapper{
+      box-shadow: 0 0 8px var(--white);
+      padding: 1rem;
+  }
+  @media all and (max-width:500px) {
+      .playlist-wrapper{
+          padding: 5px;
+      }
+      .playlist-name{
+          padding: 0;
+          background-color: transparent;
+          color:var(--red-400);
+      }
+  }

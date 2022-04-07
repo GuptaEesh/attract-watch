@@ -28,10 +28,7 @@ export function SignUp() {
   const submitHandler = (e) =>
     signUpHandler(e, setFormFields, login, formFields);
   return (
-    <div
-      className="login-page flex align-center flex-column justify-center"
-      style={{ height: "100vh" }}
-    >
+    <div className="login-page flex align-center flex-column justify-center height-r-100">
       {loader ? (
         <div className="flex flex-column align-center">
           <Loader />
@@ -40,8 +37,7 @@ export function SignUp() {
       ) : (
         <form
           onSubmit={submitHandler}
-          className="flex glass flex-column"
-          style={{ gap: "10px", padding: "2rem" }}
+          className="flex credential-form glass flex-column padding-2 gap-px-10"
         >
           {" "}
           <InputSimple
@@ -98,7 +94,7 @@ export function SignUp() {
           />
           <PassChecker pass={password} confirmPass={confirmPass} />
           {error ? (
-            <span style={{ color: "var(--red-400)" }}>{message}!</span>
+            <span className="text-red">{message}!</span>
           ) : (
             <span className="text-white">Good to go!</span>
           )}
@@ -113,7 +109,7 @@ export function SignUp() {
           </span>
           <Input
             inputType="submit"
-            inputClass="primary-video bold btn text-white without-shadow"
+            inputClass="primary-video-button bold btn text-white without-shadow"
           />
         </form>
       )}
